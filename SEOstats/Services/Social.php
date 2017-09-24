@@ -56,9 +56,9 @@ class Social extends SEOstats
         $dataUrl = sprintf(Config\Services::FB_LINKSTATS_URL, rawurlencode($url));
 
         $jsonData = parent::_getPage($dataUrl);
-        $phpArray = Helper\Json::decode($jsonData, true);
+	$phpArray = Helper\Json::decode($jsonData, true);
 
-        return isset($phpArray[0]) ? $phpArray[0] : parent::noDataDefaultValue();
+        return isset($phpArray["share"]) ? $phpArray["share"] : parent::noDataDefaultValue();
     }
 
     /**
