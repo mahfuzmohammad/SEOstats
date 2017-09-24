@@ -53,8 +53,7 @@ class Social extends SEOstats
     public static function getFacebookShares($url = false)
     {
         $url     = parent::getUrl($url);
-        $fql     = sprintf('SELECT total_count, share_count, like_count, comment_count, commentsbox_count, click_count FROM link_stat WHERE url="%s"', $url);
-        $dataUrl = sprintf(Config\Services::FB_LINKSTATS_URL, rawurlencode($fql));
+        $dataUrl = sprintf(Config\Services::FB_LINKSTATS_URL, rawurlencode($url));
 
         $jsonData = parent::_getPage($dataUrl);
         $phpArray = Helper\Json::decode($jsonData, true);
