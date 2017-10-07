@@ -96,7 +96,7 @@ class Google extends SEOstats
 
         $url = parent::getUrl($url);
         $url = sprintf(Config\Services::GOOGLE_PAGESPEED_URL,
-            $url, $strategy, Config\ApiKeys::getGoogleSimpleApiAccessKey());
+            urlencode($url), $strategy, Config\ApiKeys::getGoogleSimpleApiAccessKey());
 
         $ret = static::_getPage($url);
 
